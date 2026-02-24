@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:        #dictionary
+  name: my-pod
+  labels:        #Nested dictionary
+    app: nginx
+    environment: development
+spec:
+  containers:    #List of dictionaries
+    - name: nginx-container
+      image: nginx:latest
+      ports:         
+        - containerPort: 80
+    - name: sidecar-container          
+      image: busybox:latest                
+      args: ["sleep", "3600"]            
+#      args:                   
+#        - "sleep"
+#        - "3600"
